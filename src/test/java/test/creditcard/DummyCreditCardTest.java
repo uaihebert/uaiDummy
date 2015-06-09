@@ -23,7 +23,8 @@ public class DummyCreditCardTest {
 
         assertNotNull(dummyCreditCard);
         assertNotNull(dummyCreditCard.getExpirationDate());
-        System.out.println(">>" + dummyCreditCard.getExpirationDate());
+        assertNotNull(dummyCreditCard.getNumber());
+        assertNotNull(dummyCreditCard.getSecurityNumber());
 
         ForTestOnlyCreditCardValidator.validate(dummyCreditCard.getNumber());
     }

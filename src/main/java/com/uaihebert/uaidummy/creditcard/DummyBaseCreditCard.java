@@ -1,7 +1,5 @@
 package com.uaihebert.uaidummy.creditcard;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Random;
 
 /**
@@ -47,7 +45,7 @@ public abstract class DummyBaseCreditCard {
     }
 
     private void generateExpirationDate() {
-       expirationDate = new SimpleDateFormat(defaultExpirationDateMask).format(new Date());
+       expirationDate = ExpirationDateUtil.generateNonExpirationDate(defaultExpirationDateMask);
     }
 
     private void generateSecurityNumber() {
