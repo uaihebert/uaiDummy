@@ -12,13 +12,13 @@ public class RandomUtils {
         random = new Random();
     }
 
-    public static List<Integer> randomNumberList(int count){
+    public static List<Integer> randomNumberList(final int count){
         return randomNumberList(count, 0, 9);
     }
 
-    public static List<Integer> randomNumberList(int count, int min, int max){
-        Random random = new Random();
-        List<Integer> digits = new ArrayList<Integer>();
+    public static List<Integer> randomNumberList(final int count, final int min, final int max){
+        final List<Integer> digits = new ArrayList<Integer>();
+
         for(int i = 0 ; i < count ; i++){
             digits.add(random.nextInt((max - min) + 1) + min);
         }
