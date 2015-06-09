@@ -6,11 +6,6 @@ import java.util.Random;
 
 public class CpfGenerator {
 
-    public static void main(String[] args) {
-        StringBuilder build = new StringBuilder();
-        build.insert(3, '.');
-    }
-
     public static String generate() {
         List<Integer> cpf = createCpf();
 
