@@ -3,10 +3,11 @@ package test.creditcard;
 /**
  * Class that will validate the credit card.
  *
- *
+ * The code was created by Meno Hochschild extraced from here:
+ * http://stackoverflow.com/questions/20740444/check-credit-card-validity-using-luhn-algorithm
  */
-public class LameCreditCardValidator {
-    public static void check(final String cardNumber) {
+public class ForTestOnlyCreditCardValidator {
+    public static void validate(final String cardNumber) {
         int[] digits = new int[cardNumber.length()];
 
         final char[] cardNumberArray = cardNumber.toCharArray();

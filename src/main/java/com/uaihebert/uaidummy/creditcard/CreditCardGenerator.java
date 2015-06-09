@@ -1,11 +1,15 @@
 package com.uaihebert.uaidummy.creditcard;
 
-import com.uaihebert.uaidummy.creditcard.brand.Visa;
-
 public final class CreditCardGenerator {
-    public static final CreditCard VISA = new Visa();
-
     private CreditCardGenerator() {
 
+    }
+
+    public static String generateVisa() {
+        return new Visa().getNumber();
+    }
+
+    public static CreditCard generateVisaInstance() {
+        return new Visa();
     }
 }

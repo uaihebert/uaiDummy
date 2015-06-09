@@ -1,4 +1,4 @@
-package com.uaihebert.uaidummy.creditcard.brand;
+package com.uaihebert.uaidummy.creditcard;
 
 import java.util.Random;
 
@@ -9,7 +9,20 @@ import java.util.Random;
 abstract class BaseCreditCard {
     private static final Random random = new Random(System.currentTimeMillis());
 
-    public String generate() {
+    private String number;
+
+    public BaseCreditCard() {
+        generate();
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    protected abstract int getLength();
+    protected abstract String getPrefix();
+
+    private void generate() {
         final String prefix = getPrefix();
         final int length = getLength();
 
@@ -25,7 +38,7 @@ abstract class BaseCreditCard {
         final int checkDigit = getCheckDigit(buffer.toString());
         buffer.append(checkDigit);
 
-        return buffer.toString();
+        number = buffer.toString();
     }
 
     private static int getCheckDigit(String number) {
@@ -52,7 +65,4 @@ abstract class BaseCreditCard {
 
         return checkDigit;
     }
-
-    protected abstract int getLength();
-    protected abstract String getPrefix();
 }
