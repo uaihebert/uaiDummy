@@ -3,7 +3,7 @@ package com.uaihebert.uaidummy.brazil;
 public class CpfGenerator {
 
     public static String generate() {
-        return new CpfImpl().getValue();
+        return generateInstance().getValue();
     }
 
     public static String generateMasked() {

@@ -1,17 +1,26 @@
 package com.uaihebert.uaidummy.creditcard;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 /**
  * Based on the code of: Josef Galea
  * https://gist.github.com/josefeg/5781824
  */
-abstract class BaseCreditCard {
+public abstract class DummyBaseCreditCard {
+    private static String defaultExpirationDateMask = "MM/yy";
     private static final Random random = new Random(System.currentTimeMillis());
 
     private String number;
+    private String expirationDate;
+    private String securityNumber;
 
-    public BaseCreditCard() {
+    public static void setDefaultExpirationDateMask(String defaultExpirationDateMask) {
+        DummyBaseCreditCard.defaultExpirationDateMask = defaultExpirationDateMask;
+    }
+
+    DummyBaseCreditCard() {
         generate();
     }
 
@@ -19,10 +28,39 @@ abstract class BaseCreditCard {
         return number;
     }
 
+    public String getSecurityNumber() {
+        return securityNumber;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
     protected abstract int getLength();
     protected abstract String getPrefix();
+    protected abstract int getSecurityNumberLength();
 
     private void generate() {
+        generateNumber();
+        generateExpirationDate();
+        generateSecurityNumber();
+    }
+
+    private void generateExpirationDate() {
+       expirationDate = new SimpleDateFormat(defaultExpirationDateMask).format(new Date());
+    }
+
+    private void generateSecurityNumber() {
+        final StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < getSecurityNumberLength(); i++) {
+            builder.append(random.nextInt(10));
+        }
+
+        securityNumber = builder.toString();
+    }
+
+    private void generateNumber() {
         final String prefix = getPrefix();
         final int length = getLength();
 
