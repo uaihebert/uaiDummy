@@ -5,15 +5,14 @@ import java.util.Random;
 /**
  * Based on the code of: Josef Galea
  * https://gist.github.com/josefeg/5781824
- *
  */
-final class CreditCardNumberGenerator {
+abstract class BaseCreditCard {
     private static final Random random = new Random(System.currentTimeMillis());
 
-    private CreditCardNumberGenerator() {
-    }
+    public String generate() {
+        final String prefix = getPrefix();
+        final int length = getLength();
 
-    public static String generate(final String prefix, final int length) {
         final int randomNumberLength = length - (prefix.length() + 1);
 
         final StringBuffer buffer = new StringBuffer(prefix);
@@ -53,4 +52,7 @@ final class CreditCardNumberGenerator {
 
         return checkDigit;
     }
+
+    protected abstract int getLength();
+    protected abstract String getPrefix();
 }
