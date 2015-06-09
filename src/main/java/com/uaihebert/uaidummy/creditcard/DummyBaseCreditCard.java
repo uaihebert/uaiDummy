@@ -2,8 +2,6 @@ package com.uaihebert.uaidummy.creditcard;
 
 import com.uaihebert.uaidummy.utils.RandomUtils;
 
-import java.util.Random;
-
 /**
  * Based on the code of: Josef Galea
  * https://gist.github.com/josefeg/5781824
