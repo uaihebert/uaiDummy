@@ -1,42 +1,27 @@
 package com.uaihebert.uaidummy.brazil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import com.uaihebert.uaidummy.utils.ListUtils;
+import com.uaihebert.uaidummy.utils.RandomUtils;
 
-class CpfImpl implements Cpf {
+import java.util.List;
+
+class DummyCpfImpl implements DummyCpf {
 
     private String value;
 
-    public CpfImpl() {
+    public DummyCpfImpl() {
         this.value = generate();
     }
 
     private static String generate() {
-        List<Integer> cpf = createCpf();
-
-        String result = "";
-        for(Integer digit : cpf){
-            result += digit;
-        }
-
-        return result;
+        return ListUtils.elementsToString(createCpf());
     }
 
     private static List<Integer> createCpf(){
-        List<Integer> digits = generateRandomDigits();
+        List<Integer> digits = RandomUtils.randomNumberList(9);
         digits.add(calculateFirstVerificationDigit(digits));
         digits.add(calculateSecondVerificationDigit(digits));
 
-        return digits;
-    }
-
-    private static List<Integer> generateRandomDigits(){
-        Random random = new Random();
-        List<Integer> digits = new ArrayList<Integer>();
-        for(int i = 0 ; i < 9 ; i++){
-            digits.add(random.nextInt(10));
-        }
         return digits;
     }
 
@@ -48,22 +33,8 @@ class CpfImpl implements Cpf {
         return calculateVerificationDigit(11, digits);
     }
 
-    private static Integer calculateVerificationDigit(int multiplierStart, List<Integer> digits) {
-        List<Integer> temp = new ArrayList<Integer>(digits);
-        for(int i = 0 ; i < temp.size() ; i++){
-            temp.set(i, temp.get(i) * multiplierStart--);
-        }
-        int sum = sum(temp);
-        int rest = sum % 11;
-        return rest < 2 ? 0 : (11 - rest);
-    }
-
-    private static Integer sum(List<Integer> numbers){
-        int sum = 0;
-        for(Integer number : numbers){
-            sum += number;
-        }
-        return sum;
+    private static Integer calculateVerificationDigit(int multiplier, List<Integer> digits) {
+        return Modulo11.cpf(digits, multiplier);
     }
 
     public String getValue() {

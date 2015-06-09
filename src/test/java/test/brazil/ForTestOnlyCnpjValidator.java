@@ -1,15 +1,15 @@
 package test.brazil;
 
-import com.uaihebert.uaidummy.brazil.Cnpj;
+import com.uaihebert.uaidummy.brazil.DummyCnpj;
 
 import java.util.InputMismatchException;
 
 /**
  * Validation algorithm downloaded from: http://www.devmedia.com.br/validando-o-cnpj-em-uma-aplicacao-java/22374
  */
-public class CnpjValidator {
+public class ForTestOnlyCnpjValidator {
 
-    public static boolean isValid(Cnpj cnpj) {
+    public static boolean isValid(DummyCnpj cnpj) {
         return isValid(cnpj.getValue());
     }
 

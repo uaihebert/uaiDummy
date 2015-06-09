@@ -1,15 +1,15 @@
 package test.brazil;
 
-import com.uaihebert.uaidummy.brazil.Cpf;
+import com.uaihebert.uaidummy.brazil.DummyCpf;
 
 import java.util.InputMismatchException;
 
 /**
  * Validation algorithm downloaded from: http://www.devmedia.com.br/validando-o-cpf-em-uma-aplicacao-java/22097
  */
-public class CpfValidator {
+public class ForTestOnlyCpfValidator {
 
-    public static boolean isValid(Cpf cpf){
+    public static boolean isValid(DummyCpf cpf){
         return isValid(cpf.getValue());
     }
 

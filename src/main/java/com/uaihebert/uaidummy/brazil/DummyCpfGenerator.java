@@ -1,6 +1,6 @@
 package com.uaihebert.uaidummy.brazil;
 
-public class CpfGenerator {
+public class DummyCpfGenerator {
 
     public static String generate() {
         return generateInstance().getValue();
@@ -10,8 +10,8 @@ public class CpfGenerator {
        return generateInstance().getFormattedValue();
     }
 
-    public static Cpf generateInstance() {
-        return new CpfImpl();
+    public static DummyCpf generateInstance() {
+        return new DummyCpfImpl();
     }
 
 }

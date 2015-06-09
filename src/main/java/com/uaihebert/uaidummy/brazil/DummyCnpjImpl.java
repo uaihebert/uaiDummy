@@ -1,42 +1,27 @@
 package com.uaihebert.uaidummy.brazil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import com.uaihebert.uaidummy.utils.ListUtils;
+import com.uaihebert.uaidummy.utils.RandomUtils;
 
-class CnpjImpl implements Cnpj {
+import java.util.List;
+
+class DummyCnpjImpl implements DummyCnpj {
 
     private String value;
 
-    public CnpjImpl() {
+    public DummyCnpjImpl() {
         this.value = generate();
     }
 
     private static String generate() {
-        List<Integer> cnpj = createCnpj();
-
-        String result = "";
-        for(Integer digit : cnpj){
-            result += digit;
-        }
-
-        return result;
+        return ListUtils.elementsToString(createCnpj());
     }
 
     private static List<Integer> createCnpj(){
-        List<Integer> digits = generateRandomDigits();
+        List<Integer> digits = RandomUtils.randomNumberList(12);
         digits.add(calculateFirstVerificationDigit(digits));
         digits.add(calculateSecondVerificationDigit(digits));
 
-        return digits;
-    }
-
-    private static List<Integer> generateRandomDigits(){
-        Random random = new Random();
-        List<Integer> digits = new ArrayList<Integer>();
-        for(int i = 0 ; i < 12 ; i++){
-            digits.add(random.nextInt(10));
-        }
         return digits;
     }
 
@@ -49,27 +34,7 @@ class CnpjImpl implements Cnpj {
     }
 
     private static Integer calculateVerificationDigit(int multiplier, List<Integer> digits) {
-        boolean restarted = false;
-        List<Integer> temp = new ArrayList<Integer>(digits);
-        for(int i = 0 ; i < temp.size() ; i++){
-            temp.set(i, temp.get(i) * multiplier--);
-
-            if(!restarted && multiplier == 1){
-                multiplier = 9;
-                restarted = true;
-            }
-        }
-        int sum = sum(temp);
-        int rest = sum % 11;
-        return rest < 2 ? 0 : (11 - rest);
-    }
-
-    private static Integer sum(List<Integer> numbers){
-        int sum = 0;
-        for(Integer number : numbers){
-            sum += number;
-        }
-        return sum;
+        return Modulo11.cnpj(digits, multiplier);
     }
 
     public String getValue() {

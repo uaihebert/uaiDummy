@@ -1,17 +1,17 @@
 package com.uaihebert.uaidummy.brazil;
 
-public class CnpjGenerator {
+public class DummyCnpjGenerator {
 
     public static String generate() {
-        return new CnpjImpl().getValue();
+        return new DummyCnpjImpl().getValue();
     }
 
     public static String generateMasked() {
        return generateInstance().getFormattedValue();
     }
 
-    public static Cnpj generateInstance() {
-        return new CnpjImpl();
+    public static DummyCnpj generateInstance() {
+        return new DummyCnpjImpl();
     }
 
 }
