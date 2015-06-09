@@ -1,5 +1,7 @@
 package com.uaihebert.uaidummy.creditcard;
 
+import com.uaihebert.uaidummy.utils.RandomUtils;
+
 import java.util.Random;
 
 /**
@@ -8,7 +10,6 @@ import java.util.Random;
  */
 public abstract class DummyBaseCreditCard {
     private static String defaultExpirationDateMask = "MM/yy";
-    private static final Random random = new Random(System.currentTimeMillis());
 
     private String number;
     private String expirationDate;
@@ -52,7 +53,7 @@ public abstract class DummyBaseCreditCard {
         final StringBuilder builder = new StringBuilder();
 
         for (int i = 0; i < getSecurityNumberLength(); i++) {
-            builder.append(random.nextInt(10));
+            builder.append(RandomUtils.nextInt(10));
         }
 
         securityNumber = builder.toString();
@@ -67,7 +68,7 @@ public abstract class DummyBaseCreditCard {
         final StringBuffer buffer = new StringBuffer(prefix);
 
         for (int i = 0; i < randomNumberLength; i++) {
-            int digit = random.nextInt(10);
+            int digit = RandomUtils.nextInt(10);
             buffer.append(digit);
         }
 

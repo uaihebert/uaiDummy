@@ -16,9 +16,13 @@ public class RandomUtils {
         final List<Integer> digits = new ArrayList<Integer>();
 
         for(int i = 0 ; i < count ; i++){
-            digits.add(random.nextInt((max - min) + 1) + min);
+            digits.add(nextInt((max - min) + 1) + min);
         }
 
         return digits;
+    }
+
+    public static int nextInt(final int boundNumber) {
+        return random.nextInt(boundNumber);
     }
 }
