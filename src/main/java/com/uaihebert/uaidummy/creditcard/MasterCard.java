@@ -1,6 +1,6 @@
 package com.uaihebert.uaidummy.creditcard;
 
-final class Visa extends DummyBaseCreditCard {
+final class MasterCard extends DummyBaseCreditCard {
 
     @Override
     protected int getLength() {
@@ -9,7 +9,7 @@ final class Visa extends DummyBaseCreditCard {
 
     @Override
     protected String getPrefix() {
-        return "4";
+        return "51";
     }
 
     @Override

@@ -6,7 +6,7 @@ import com.uaihebert.uaidummy.utils.RandomUtils;
  * Based on the code of: Josef Galea
  * https://gist.github.com/josefeg/5781824
  */
-public abstract class DummyBaseCreditCard {
+public abstract class DummyBaseCreditCard implements DummyCreditCard{
     private static String defaultExpirationDateMask = "MM/yy";
 
     private String number;

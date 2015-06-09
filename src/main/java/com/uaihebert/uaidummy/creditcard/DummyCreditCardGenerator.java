@@ -12,4 +12,12 @@ public final class DummyCreditCardGenerator {
     public static DummyCreditCard generateVisaInstance() {
         return new Visa();
     }
+
+    public static String generateMasterCard() {
+        return generateMasterCardInstance().getNumber();
+    }
+
+    public static DummyCreditCard generateMasterCardInstance() {
+        return new MasterCard();
+    }
 }

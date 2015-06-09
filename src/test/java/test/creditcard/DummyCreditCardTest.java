@@ -10,17 +10,23 @@ public class DummyCreditCardTest {
 
     @Test
     public void isGeneratingValidVisaNumber() {
-        final String creditCard = DummyCreditCardGenerator.generateVisa();
+        validateNumber(DummyCreditCardGenerator.generateVisa());
+        validateNumber(DummyCreditCardGenerator.generateMasterCard());
+    }
 
+    @Test
+    public void isGeneratingValidVisaInstance() {
+        validateCreditCardData(DummyCreditCardGenerator.generateVisaInstance());
+        validateCreditCardData(DummyCreditCardGenerator.generateMasterCardInstance());
+    }
+
+    private void validateNumber(String creditCard) {
         assertNotNull(creditCard);
 
         ForTestOnlyCreditCardValidator.validate(creditCard);
     }
 
-    @Test
-    public void isGeneratingValidVisaInstance() {
-        final DummyCreditCard dummyCreditCard = DummyCreditCardGenerator.generateVisaInstance();
-
+    private void validateCreditCardData(DummyCreditCard dummyCreditCard) {
         assertNotNull(dummyCreditCard);
         assertNotNull(dummyCreditCard.getExpirationDate());
         assertNotNull(dummyCreditCard.getNumber());
