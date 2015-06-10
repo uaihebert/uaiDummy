@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomUtils {
+public final class RandomUtils {
 
     private static final Random random = new Random();
+
+    private RandomUtils() {
+    }
 
     public static List<Integer> randomNumberList(final int count){
         return randomNumberList(count, 0, 9);

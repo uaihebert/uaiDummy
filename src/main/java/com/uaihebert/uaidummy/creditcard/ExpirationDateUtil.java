@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-final class ExpirationDateUtil {
+public final class ExpirationDateUtil {
     private ExpirationDateUtil() {
     }
 
