@@ -25,15 +25,15 @@ class DummyCpfImpl implements DummyCpf {
         return digits;
     }
 
-    private static Integer calculateFirstVerificationDigit(List<Integer> digits){
+    private static Integer calculateFirstVerificationDigit(final List<Integer> digits){
         return calculateVerificationDigit(10, digits);
     }
 
-    private static Integer calculateSecondVerificationDigit(List<Integer> digits){
+    private static Integer calculateSecondVerificationDigit(final List<Integer> digits){
         return calculateVerificationDigit(11, digits);
     }
 
-    private static Integer calculateVerificationDigit(int multiplier, List<Integer> digits) {
+    private static Integer calculateVerificationDigit(final int multiplier, final List<Integer> digits) {
         return Modulo11.cpf(digits, multiplier);
     }
 

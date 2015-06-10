@@ -13,16 +13,17 @@ class Modulo11 {
 
     enum TYPE {CPF, CNPJ}
 
-    public static Integer cnpj(List<Integer> digits, int multiplier){
+    public static Integer cnpj(final List<Integer> digits, final int multiplier){
         return modulo11(digits, multiplier, TYPE.CNPJ);
     }
 
-    public static Integer cpf(List<Integer> digits, int multiplier){
+    public static Integer cpf(final List<Integer> digits, final int multiplier){
         return modulo11(digits, multiplier, TYPE.CPF);
     }
 
-    private static Integer modulo11(List<Integer> digits, int multiplier, TYPE type){
+    private static Integer modulo11(final List<Integer> digits, final int multiplierStart, final TYPE type){
         boolean restarted = false;
+        int multiplier = multiplierStart;
         List<Integer> temp = new ArrayList<Integer>(digits);
         for(int i = 0 ; i < temp.size() ; i++){
             temp.set(i, temp.get(i) * multiplier --);

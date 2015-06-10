@@ -25,15 +25,15 @@ class DummyCnpjImpl implements DummyCnpj {
         return digits;
     }
 
-    private static Integer calculateFirstVerificationDigit(List<Integer> digits){
+    private static Integer calculateFirstVerificationDigit(final List<Integer> digits){
         return calculateVerificationDigit(5, digits);
     }
 
-    private static Integer calculateSecondVerificationDigit(List<Integer> digits){
+    private static Integer calculateSecondVerificationDigit(final List<Integer> digits){
         return calculateVerificationDigit(6, digits);
     }
 
-    private static Integer calculateVerificationDigit(int multiplier, List<Integer> digits) {
+    private static Integer calculateVerificationDigit(final int multiplier, final List<Integer> digits) {
         return Modulo11.cnpj(digits, multiplier);
     }
 
