@@ -5,6 +5,8 @@ package com.uaihebert.uaidummy.creditcard;
  */
 public interface DummyCreditCard {
     public String getNumber();
+    public String getExpirationYear();
+    public String getExpirationMonth();
     public String getExpirationDate();
     public String getSecurityNumber();
     public String getLastFourDigits();

@@ -1,5 +1,6 @@
 package com.uaihebert.uaidummy.creditcard;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,6 +13,36 @@ public final class ExpirationDateUtil {
         final Date expirationDate = createNonExpiredDate();
 
         return new SimpleDateFormat(mask).format(expirationDate);
+    }
+
+    static String extractYear(final String date, final String mask) {
+        final Calendar calendar = getCalendar(date, mask);
+
+        return String.valueOf(calendar.get(Calendar.YEAR));
+    }
+
+    static String extractMonth(final String date, final String mask) {
+        final Calendar calendar = getCalendar(date, mask);
+
+        // TODO sasaky
+        final int month = calendar.get(Calendar.MONTH) + 1;
+
+        if (month < 10) {
+            return "0" + month;
+        }
+
+        return String.valueOf(month);
+    }
+
+    private static Calendar getCalendar(String date, String mask) {
+        try {
+            final Date parsedDate = new SimpleDateFormat(mask).parse(date);
+            final Calendar calendar = Calendar.getInstance();
+            calendar.setTime(parsedDate);
+            return calendar;
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static Date createNonExpiredDate() {

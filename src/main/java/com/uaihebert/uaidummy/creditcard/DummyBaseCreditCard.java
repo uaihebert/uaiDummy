@@ -33,6 +33,14 @@ public abstract class DummyBaseCreditCard implements DummyCreditCard {
         return expirationDate;
     }
 
+    public String getExpirationYear() {
+        return ExpirationDateUtil.extractYear(expirationDate, defaultExpirationDateMask);
+    }
+
+    public String getExpirationMonth() {
+        return ExpirationDateUtil.extractMonth(expirationDate, defaultExpirationDateMask);
+    }
+
     public String getLastFourDigits() {
         return number.substring(number.length() - 4);
     }
