@@ -1,6 +1,6 @@
 package test.utils;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 import com.uaihebert.uaidummy.utils.StringHelper;
 import org.junit.Test;
@@ -36,10 +36,5 @@ public class StringHelperTest {
     public void isLeftFillingWhenStringLongerThanFilling(){
         assertEquals("33", StringHelper.leftFill("a", "33"));
     }
-
-
-
-
-
 
 }
