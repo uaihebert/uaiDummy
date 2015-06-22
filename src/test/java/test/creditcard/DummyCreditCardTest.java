@@ -4,12 +4,14 @@ import com.uaihebert.uaidummy.creditcard.DummyCreditCard;
 import com.uaihebert.uaidummy.creditcard.DummyCreditCardGenerator;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class DummyCreditCardTest {
 
     @Test
-    public void isGeneratingValidVisaNumber() {
+    public void isGeneratingValidCardNumber() {
         validateNumber(DummyCreditCardGenerator.generateVisa());
         validateNumber(DummyCreditCardGenerator.generateMasterCard());
         validateNumber(DummyCreditCardGenerator.generateAmericanExpress());
@@ -26,7 +28,7 @@ public class DummyCreditCardTest {
     }
 
     @Test
-    public void isGeneratingValidVisaInstance() {
+    public void isGeneratingValidCardInstance() {
         validateCreditCardData(DummyCreditCardGenerator.generateVisaInstance());
         validateCreditCardData(DummyCreditCardGenerator.generateMasterCardInstance());
         validateCreditCardData(DummyCreditCardGenerator.generateAmericanExpressInstance());
@@ -49,11 +51,16 @@ public class DummyCreditCardTest {
     }
 
     private void validateCreditCardData(DummyCreditCard dummyCreditCard) {
+        final String number = dummyCreditCard.getNumber();
+
+        assertNotNull(number);
         assertNotNull(dummyCreditCard);
         assertNotNull(dummyCreditCard.getExpirationDate());
-        assertNotNull(dummyCreditCard.getNumber());
         assertNotNull(dummyCreditCard.getSecurityNumber());
 
-        ForTestOnlyCreditCardValidator.validate(dummyCreditCard.getNumber());
+        ForTestOnlyCreditCardValidator.validate(number);
+
+        assertTrue(dummyCreditCard.getLastFourDigits().length() == 4);
+        assertEquals(number.substring(number.length() - 4), dummyCreditCard.getLastFourDigits());
     }
 }
