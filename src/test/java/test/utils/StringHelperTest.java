@@ -28,9 +28,16 @@ public class StringHelperTest {
     }
 
     @Test
-    public void isLeftFillingCorrectly4(){
+    public void isLeftFillingCorrectly3(){
         assertEquals("abcd33", StringHelper.leftFill("abcdef", "33"));
     }
+
+    @Test
+    public void isLeftFillingWhenStringLongerThanFilling(){
+        assertEquals("33", StringHelper.leftFill("a", "33"));
+    }
+
+
 
 
 
