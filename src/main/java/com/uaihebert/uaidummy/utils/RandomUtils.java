@@ -28,4 +28,16 @@ public final class RandomUtils {
     public static int nextInt(final int boundNumber) {
         return random.nextInt(boundNumber);
     }
+
+    /**
+     * Random value between
+     * @param min inclusive
+     * @param max exclusive
+     * @return the generated value
+     *
+     * First code: http://stackoverflow.com/questions/5271598/java-generate-random-number-between-two-given-values
+     */
+    public static int nextIntBetween(final int min, final int max) {
+        return random.nextInt(max - min) + min;
+    }
 }

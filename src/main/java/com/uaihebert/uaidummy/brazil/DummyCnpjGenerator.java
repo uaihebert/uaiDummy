@@ -3,7 +3,7 @@ package com.uaihebert.uaidummy.brazil;
 public class DummyCnpjGenerator {
 
     public static String generate() {
-        return new DummyCnpjImpl().getValue();
+        return new DummyCnpjImpl().getRawValue();
     }
 
     public static String generateMasked() {
@@ -13,5 +13,4 @@ public class DummyCnpjGenerator {
     public static DummyCnpj generateInstance() {
         return new DummyCnpjImpl();
     }
-
 }

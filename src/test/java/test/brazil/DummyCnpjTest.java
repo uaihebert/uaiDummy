@@ -7,32 +7,38 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 
 public class DummyCnpjTest {
+    private static final int TOTAL_OF_LOOPS = 100;
 
     @Test
     public void isGeneratingValidCpf(){
-        String cnpj = DummyCnpjGenerator.generate();
+        for (int i = 0; i < TOTAL_OF_LOOPS; i++) {
+            final String cnpj = DummyCnpjGenerator.generate();
 
-        assertNotNull(cnpj);
+            assertNotNull(cnpj);
 
-        ForTestOnlyCnpjValidator.isValid(cnpj);
+            ForTestOnlyCnpjValidator.isValid(cnpj);
+        }
     }
 
     @Test
     public void isGeneratingValidMaskedCpf(){
-        String cnpj = DummyCnpjGenerator.generateMasked();
+        for (int i = 0; i < TOTAL_OF_LOOPS; i++) {
+            final String cnpj = DummyCnpjGenerator.generateMasked();
 
-        assertNotNull(cnpj);
+            assertNotNull(cnpj);
 
-        ForTestOnlyCnpjValidator.isValid(cnpj);
+            ForTestOnlyCnpjValidator.isValid(cnpj);
+        }
     }
 
     @Test
     public void isGeneratingValidCpfInstance(){
-        DummyCnpj cnpj = DummyCnpjGenerator.generateInstance();
+        for (int i = 0; i < TOTAL_OF_LOOPS; i++) {
+            final DummyCnpj cnpj = DummyCnpjGenerator.generateInstance();
 
-        assertNotNull(cnpj);
+            assertNotNull(cnpj);
 
-        ForTestOnlyCnpjValidator.isValid(cnpj);
+            ForTestOnlyCnpjValidator.isValid(cnpj);
+        }
     }
-
 }

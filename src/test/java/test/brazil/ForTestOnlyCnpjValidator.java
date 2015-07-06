@@ -10,7 +10,7 @@ import java.util.InputMismatchException;
 public class ForTestOnlyCnpjValidator {
 
     public static boolean isValid(DummyCnpj cnpj) {
-        return isValid(cnpj.getValue());
+        return isValid(cnpj.getRawValue());
     }
 
     public static boolean isValid(String cnpj) {

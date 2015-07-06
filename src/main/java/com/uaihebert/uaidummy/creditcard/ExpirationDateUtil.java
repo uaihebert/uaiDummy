@@ -28,7 +28,7 @@ public final class ExpirationDateUtil {
 
         final int month = calendar.get(Calendar.MONTH) + 1;
 
-        return StringHelper.leftFill("00", month);
+        return StringHelper.rightReplace("00", month);
     }
 
     private static Calendar getCalendar(String date, String mask) {

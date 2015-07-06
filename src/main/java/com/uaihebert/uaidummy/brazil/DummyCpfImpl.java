@@ -7,56 +7,59 @@ import java.util.List;
 
 class DummyCpfImpl implements DummyCpf {
 
-    private String value;
+    private final String rawValue;
+    private final String formattedValue;
 
     public DummyCpfImpl() {
-        this.value = generate();
+        rawValue = generate();
+        formattedValue = formatValue();
     }
 
-    private static String generate() {
+    private String formatValue() {
+        final StringBuilder builder = new StringBuilder(rawValue);
+
+        builder.insert(3, '.');
+        builder.insert(7, '.');
+        builder.insert(11, '-');
+
+        return builder.toString();
+    }
+
+    private String generate() {
         return ListUtils.elementsToString(createCpf());
     }
 
-    private static List<Integer> createCpf(){
-        List<Integer> digits = RandomUtils.randomNumberList(9);
-        digits.add(calculateFirstVerificationDigit(digits));
-        digits.add(calculateSecondVerificationDigit(digits));
+    private List<Integer> createCpf(){
+        final List<Integer> digitList = RandomUtils.randomNumberList(9);
 
-        return digits;
+        digitList.add(calculateFirstVerificationDigit(digitList));
+        digitList.add(calculateSecondVerificationDigit(digitList));
+
+        return digitList;
     }
 
-    private static Integer calculateFirstVerificationDigit(final List<Integer> digits){
+    private Integer calculateFirstVerificationDigit(final List<Integer> digits){
         return calculateVerificationDigit(10, digits);
     }
 
-    private static Integer calculateSecondVerificationDigit(final List<Integer> digits){
+    private Integer calculateSecondVerificationDigit(final List<Integer> digits){
         return calculateVerificationDigit(11, digits);
     }
 
-    private static Integer calculateVerificationDigit(final int multiplier, final List<Integer> digits) {
+    private Integer calculateVerificationDigit(final int multiplier, final List<Integer> digits) {
         return Modulo11.cpf(digits, multiplier);
     }
 
-    public String getValue() {
-        return value;
+    public String getRawValue() {
+        return rawValue;
     }
 
     public String getFormattedValue(){
-        String formattedValue = "";
-
-        if(value != null) {
-            StringBuilder builder = new StringBuilder(value);
-            builder.insert(3, '.');
-            builder.insert(7, '.');
-            builder.insert(11, '-');
-            formattedValue = builder.toString();
-        }
-
         return formattedValue;
     }
 
     @Override
     public String toString() {
-        return getFormattedValue();
+        return formattedValue;
     }
 }

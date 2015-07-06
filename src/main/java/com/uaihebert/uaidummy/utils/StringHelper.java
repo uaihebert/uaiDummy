@@ -4,18 +4,27 @@ public class StringHelper {
     private StringHelper() {
     }
 
-    public static String leftFill(final String filling, final Object obj) {
+    /**
+     * Will replace the lasts chars:
+     *      rightReplace("aaa", "3") will generate "aa3"
+     *      rightReplace("aaa", "33") will generate "a33"
+     *
+     * @param target the target string
+     * @param obj the object to extract the value
+     * @return
+     */
+    public static String rightReplace(final String target, final Object obj) {
         if (obj == null) {
             return null;
         }
 
         final String str = String.valueOf(obj);
 
-        if (filling == null || filling.isEmpty()) {
+        if (target == null || target.isEmpty()) {
             return str;
         }
 
-        final int fillingLength = filling.length();
+        final int fillingLength = target.length();
         final int strLength = str.length();
         final int lengthDiff = fillingLength - strLength;
 
@@ -23,7 +32,7 @@ public class StringHelper {
             return str;
         }
 
-        final StringBuffer sb = new StringBuffer(filling);
+        final StringBuffer sb = new StringBuffer(target);
 
         int strCounter = 0;
 

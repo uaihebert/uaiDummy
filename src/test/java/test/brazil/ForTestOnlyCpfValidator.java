@@ -10,7 +10,7 @@ import java.util.InputMismatchException;
 public class ForTestOnlyCpfValidator {
 
     public static boolean isValid(DummyCpf cpf){
-        return isValid(cpf.getValue());
+        return isValid(cpf.getRawValue());
     }
 
     public static boolean isValid(String cpf) {
@@ -36,7 +36,7 @@ public class ForTestOnlyCpfValidator {
             peso = 10;
 
             for (i=0; i<9; i++) {
-                num = (int)(cpf.charAt(i) - 48);
+                num = (cpf.charAt(i) - 48);
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -50,7 +50,7 @@ public class ForTestOnlyCpfValidator {
             sm = 0; peso = 11;
 
             for(i=0; i<10; i++) {
-                num = (int)(cpf.charAt(i) - 48);
+                num = (cpf.charAt(i) - 48);
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -62,13 +62,9 @@ public class ForTestOnlyCpfValidator {
             else
                 dig11 = (char)(r + 48);
 
-            if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10)))
-                return(true);
-            else
-                return(false);
-        } catch (InputMismatchException erro) {
-            return(false);
+            return (dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10));
+        } catch (final InputMismatchException exception) {
+            return false;
         }
     }
-
 }

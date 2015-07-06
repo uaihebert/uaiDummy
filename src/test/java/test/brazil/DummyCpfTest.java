@@ -7,32 +7,38 @@ import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 
 public class DummyCpfTest {
+    private static final int TOTAL_OF_LOOPS = 100;
 
     @Test
     public void isGeneratingValidCpf(){
-        String cpf = DummyCpfGenerator.generate();
+        for (int i = 0; i < TOTAL_OF_LOOPS; i++) {
+            final String cpf = DummyCpfGenerator.generate();
 
-        assertNotNull(cpf);
+            assertNotNull(cpf);
 
-        ForTestOnlyCpfValidator.isValid(cpf);
+            ForTestOnlyCpfValidator.isValid(cpf);
+        }
     }
 
     @Test
     public void isGeneratingValidMaskedCpf(){
-        String cpf = DummyCpfGenerator.generateMasked();
+        for (int i = 0; i < TOTAL_OF_LOOPS; i++) {
+            final String cpf = DummyCpfGenerator.generateMasked();
 
-        assertNotNull(cpf);
+            assertNotNull(cpf);
 
-        ForTestOnlyCpfValidator.isValid(cpf);
+            ForTestOnlyCpfValidator.isValid(cpf);
+        }
     }
 
     @Test
     public void isGeneratingValidCpfInstance(){
-        DummyCpf cpf = DummyCpfGenerator.generateInstance();
+        for (int i = 0; i < TOTAL_OF_LOOPS; i++) {
+            final DummyCpf cpf = DummyCpfGenerator.generateInstance();
 
-        assertNotNull(cpf);
+            assertNotNull(cpf);
 
-        ForTestOnlyCpfValidator.isValid(cpf);
+            ForTestOnlyCpfValidator.isValid(cpf);
+        }
     }
-
 }
