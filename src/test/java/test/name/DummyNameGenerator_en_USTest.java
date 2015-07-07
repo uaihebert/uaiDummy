@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
-public class DummyNameGeneratorTest {
+public class DummyNameGenerator_en_USTest {
 
     @Test
     public void isGeneratingFirstName() {
