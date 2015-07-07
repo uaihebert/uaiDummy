@@ -11,7 +11,7 @@ public final class DummyNameGenerator {
     // todo create a configuration for this
     private static int MAX_LAST_NAMES_IN_CACHE = 1000;
     private static int MAX_FIRST_NAMES_IN_CACHE = 2000;
-    private static int TOTAL_LAST_NAMES_IN_FULL_NAME = 3;
+    private static int TOTAL_LAST_NAMES_IN_FULL_NAME = 2;
 
     private static final List<String> LAST_NAME_LIST = new ArrayList<>();
     private static final List<String> FIRST_NAME_LIST = new ArrayList<>();
@@ -42,6 +42,18 @@ public final class DummyNameGenerator {
     public static String generateLastName() {
         final int randomIndex = RandomUtils.nextIntBetween(0, LAST_NAME_LIST.size());
         return LAST_NAME_LIST.get(randomIndex);
+    }
+
+    public static String generateFullName() {
+        final StringBuilder builder = new StringBuilder();
+
+        builder.append(generateFirstName());
+
+        for (int i = 0; i < TOTAL_LAST_NAMES_IN_FULL_NAME; i++) {
+            builder.append(" " + generateLastName());
+        }
+
+        return builder.toString();
     }
 
     public static int getMaxLastNamesInCache() {

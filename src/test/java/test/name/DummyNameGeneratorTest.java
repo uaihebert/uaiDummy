@@ -18,14 +18,19 @@ public class DummyNameGeneratorTest {
 
     @Test
     public void isGeneratingLastName() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println(DummyNameGenerator.generateLastName());
-        }
+        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
+    }
 
-        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
-        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
-        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
-        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
-        assertNotNull("A name must be generated", DummyNameGenerator.generateLastName());
+    @Test
+    public void isGeneratingFullName() {
+        assertNotNull("A name must be generated", DummyNameGenerator.generateFullName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateFullName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateFullName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateFullName());
+        assertNotNull("A name must be generated", DummyNameGenerator.generateFullName());
     }
 }
