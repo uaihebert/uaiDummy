@@ -10,7 +10,11 @@ public final class DummyConfig {
         DummyBaseCreditCard.setDefaultExpirationDateMask(mask);
     }
 
-    public static void setCurrentLanguageUS() {
-        LanguageConfig.setCurrentLanguageUS();
+    public static void setCurrentLanguageUS_EN() {
+        LanguageConfig.setCurrentLanguageUS_EN();
+    }
+
+    public static void setCurrentLanguagePT_BR() {
+        LanguageConfig.setCurrentLanguagePT_BR();
     }
 }

@@ -7,7 +7,11 @@ public class LanguageConfig {
         return currentLanguage;
     }
 
-    public static void setCurrentLanguageUS() {
+    public static void setCurrentLanguageUS_EN() {
         currentLanguage = SupportedLanguage.us_EN;
+    }
+
+    public static void setCurrentLanguagePT_BR() {
+        currentLanguage = SupportedLanguage.pt_BR;
     }
 }

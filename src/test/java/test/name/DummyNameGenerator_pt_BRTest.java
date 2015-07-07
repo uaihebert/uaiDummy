@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
-public class DummyNameGenerator_en_USTest {
+public class DummyNameGenerator_pt_BRTest {
 
     @BeforeClass
     public static void beforeClass() {
-        DummyConfig.setCurrentLanguageUS_EN();
+        DummyConfig.setCurrentLanguagePT_BR();
     }
 
     @Test
