@@ -1,4 +1,4 @@
-package com.uaihebert.uaidummy.usa;
+package com.uaihebert.uaidummy.us;
 
 public final class DummySocialSecurityNumberGenerator {
     private DummySocialSecurityNumberGenerator() {

@@ -1,4 +1,4 @@
-package com.uaihebert.uaidummy.usa;
+package com.uaihebert.uaidummy.us;
 
 import com.uaihebert.uaidummy.utils.RandomUtils;
 

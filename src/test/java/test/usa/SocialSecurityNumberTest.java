@@ -1,6 +1,6 @@
 package test.usa;
 
-import com.uaihebert.uaidummy.usa.DummySocialSecurityNumberGenerator;
+import com.uaihebert.uaidummy.us.DummySocialSecurityNumberGenerator;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
