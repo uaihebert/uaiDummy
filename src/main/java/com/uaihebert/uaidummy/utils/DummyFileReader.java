@@ -22,6 +22,12 @@ public final class DummyFileReader {
         return loadFileByLine(amountToLoad, filePath);
     }
 
+    public static List<String> loadLastNameFile(final int amountToLoad) {
+        final String filePath = "/names/" + LanguageConfig.getCurrentLanguage().name() + "/last_name.txt";
+
+        return loadFileByLine(amountToLoad, filePath);
+    }
+
     private static List<String> loadFileByLine(final int amountToLoad, final String filePath) {
         final List<String> result = new ArrayList<>();
 
