@@ -63,4 +63,16 @@ public final class DummyNameGenerator {
     public static int getMaxFirstNamesInCache() {
         return MAX_FIRST_NAMES_IN_CACHE;
     }
+
+    public static void setMaxLastNamesInCache(final int maxLastNamesInCache) {
+        MAX_LAST_NAMES_IN_CACHE = maxLastNamesInCache;
+    }
+
+    public static void setMaxFirstNamesInCache(final int maxFirstNamesInCache) {
+        MAX_FIRST_NAMES_IN_CACHE = maxFirstNamesInCache;
+    }
+
+    public static void setTotalLastNamesInFullName(final int totalLastNamesInFullName) {
+        TOTAL_LAST_NAMES_IN_FULL_NAME = totalLastNamesInFullName;
+    }
 }
