@@ -10,7 +10,7 @@
 
     <name>uaiDummy</name>
     <description>uaiDummy generate fake data to help with the tests</description>
-    <!--<url> TODO http://uaimockserver.com</url>-->
+    <url>https://github.com/uaihebert/uaiDummy</url>
 
     <licenses>
         <license>
