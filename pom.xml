@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>uaihebert.com</groupId>
@@ -34,6 +36,21 @@
         <sonar.java.coveragePlugin>cobertura</sonar.java.coveragePlugin>
         <sonar.cobertura.reportPath>target/site/cobertura/coverage.xml</sonar.cobertura.reportPath>
     </properties>
+
+    <developers>
+        <developer>
+            <name>uaiHebert</name>
+            <email>uaihebert@gmail.com</email>
+            <organization>uaiHebert</organization>
+            <organizationUrl>http://www.uaiHebert.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>Rodrigo Perez Sasaki</name>
+            <email>rodrigopsasaki@gmail.com</email>
+            <organization>rodrigosasaki</organization>
+            <organizationUrl>http://rodrigosasaki.com</organizationUrl>
+        </developer>
+    </developers>
 
     <contributors>
         <contributor>
