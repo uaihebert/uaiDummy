@@ -1,8 +1,38 @@
 package com.uaihebert.uaidummy.creditcard;
 
-public final class DummyCreditCardGenerator {
-    private DummyCreditCardGenerator() {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public final class DummyCreditCardGenerator {
+
+    private static final Map<String, Class> SUPPORTED_CREDIT_CARD_MAP = new HashMap<>();
+
+    static {
+        SUPPORTED_CREDIT_CARD_MAP.put(Jcb.class.getSimpleName(), Jcb.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(Visa.class.getSimpleName(), Visa.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(Uatp.class.getSimpleName(), Uatp.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(Maestro.class.getSimpleName(), Maestro.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(Dankort.class.getSimpleName(), Dankort.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(MasterCard.class.getSimpleName(), MasterCard.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(DiscoverCard.class.getSimpleName(), DiscoverCard.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(InstaPayment.class.getSimpleName(), InstaPayment.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(ChinaUnionPay.class.getSimpleName(), ChinaUnionPay.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(InterPaymentTM.class.getSimpleName(), InterPaymentTM.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(AmericanExpress.class.getSimpleName(), AmericanExpress.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(DinersClubCarteBlanche.class.getSimpleName(), DinersClubCarteBlanche.class);
+        SUPPORTED_CREDIT_CARD_MAP.put(DinersClubInternational.class.getSimpleName(), DinersClubInternational.class);
+    }
+
+    public static List<String> listAllSupportedCreditCards() {
+        return Collections.unmodifiableList(new ArrayList<>(SUPPORTED_CREDIT_CARD_MAP.keySet()));
+    }
+
+    public static DummyCreditCard generateByName(final String byName) {
+        final Class aClass = SUPPORTED_CREDIT_CARD_MAP.get(byName);
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(aClass);
     }
 
     public static String generateVisa() {
@@ -10,7 +40,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateVisaInstance() {
-        return new Visa();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(Visa.class);
     }
 
     public static String generateMasterCard() {
@@ -18,7 +48,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateMasterCardInstance() {
-        return new MasterCard();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(MasterCard.class);
     }
 
     public static String generateAmericanExpress() {
@@ -26,7 +56,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateAmericanExpressInstance() {
-        return new AmericanExpress();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(AmericanExpress.class);
     }
 
     public static String generateChinaUnionPay() {
@@ -34,7 +64,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateChinaUnionPayInstance() {
-        return new ChinaUnionPay();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(ChinaUnionPay.class);
     }
 
     public static String generateDinersClubCarteBlanche() {
@@ -42,7 +72,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateDinersClubCarteBlancheInstance() {
-        return new DinersClubCarteBlanche();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(DinersClubCarteBlanche.class);
     }
 
     public static String generateDinersClubInternational() {
@@ -50,7 +80,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateDinersClubInternationalInstance() {
-        return new DinersClubInternational();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(DinersClubInternational.class);
     }
 
     public static String generateDiscoverCard() {
@@ -58,7 +88,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateDiscoverCardInstance() {
-        return new DiscoverCard();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(DiscoverCard.class);
     }
 
     public static String generateInterPaymentTM() {
@@ -66,7 +96,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateInterPaymentTMInstance() {
-        return new InterPaymentTM();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(InterPaymentTM.class);
     }
 
     public static String generateInstaPayment() {
@@ -74,7 +104,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateInstaPaymentInstance() {
-        return new InstaPayment();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(InstaPayment.class);
     }
 
     public static String generateJcb() {
@@ -82,7 +112,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateJcbInstance() {
-        return new Jcb();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(Jcb.class);
     }
 
     public static String generateMaestro() {
@@ -90,7 +120,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateMaestroInstance() {
-        return new Maestro();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(Maestro.class);
     }
 
     public static String generateDankort() {
@@ -98,7 +128,7 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateDankortInstance() {
-        return new Dankort();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(Dankort.class);
     }
 
     public static String generateUatp() {
@@ -106,6 +136,6 @@ public final class DummyCreditCardGenerator {
     }
 
     public static DummyCreditCard generateUatpInstance() {
-        return new Uatp();
+        return DummyCreditCardReflectionUtil.instantiateDummyCreditCard(Uatp.class);
     }
 }
